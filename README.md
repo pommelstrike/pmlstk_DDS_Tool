@@ -1,7 +1,8 @@
 # Pommelstrike's DDS Channel Splitter
 
+![DDS Channel Splitter Banner](https://via.placeholder.com/800x200?text=Pommelstrike%27s+DDS+Channel+Splitter)
 
-A Blender addon to split DDS texture files into separate grayscale TGA files for each channel with custom naming conventions. This addon supports splitting normal maps, metallic/roughness maps, opacity maps, MSKcloth, glow maps, and skin textures HMVY, CLEA, etc.
+A Blender addon to split DDS texture files into separate grayscale TGA files for each channel with custom naming conventions. This addon supports splitting normal maps, metallic/roughness maps, opacity maps, glow maps, and also processes skin textures based on predefined mappings.
 
 ## Features
 
@@ -14,11 +15,23 @@ A Blender addon to split DDS texture files into separate grayscale TGA files for
   - **Opacity Maps (`_BM`):** Creates a single `BM_A_Opacity.tga` from the alpha channel.
   - **Glow Maps (`_GM`):** Splits into separate files for each channel with a unique naming convention.
   - **Skin Textures:**  
-    - Standard mapping based on predefined channels for keys such as `HMVY`, `CLEA`, and `MSK`.
-    - **New Support for `*_MSKcloth.DDS`:** Generates three files:  
-      - `MSKcloth_R.tga`
-      - `MSKcloth_G.tga`
-      - `MSKcloth_B.tga`
+    Uses predefined mappings for different skin texture types.  
+    For example:
+    - For files with the key **HMVY**, the following output files will be generated:
+      - `L0_HMVY_Red_Hemo.tga`
+      - `L1_HMVY_Grn_Mela.tga`
+      - `L2_HMVY_Blu_Vein.tga`
+      - `L3_HMVY_Alpha_Yellow.tga`
+    - For files with the key **CLEA**, the addon produces:
+      - `L4_CLEA_Red_Cavity.tga`
+      - `L5_CLEA_Grn_Brows.tga`
+      - `L6_CLEA_Blu_Lips.tga`
+      - `A0_CLEA_Alpha.tga`
+  - **Custom Support for `*_MSKcloth.DDS`:**  
+    Generates three files:  
+    - `MSKcloth_R.tga`
+    - `MSKcloth_G.tga`
+    - `MSKcloth_B.tga`
       
 - **User Interface Integration:**  
   - A popover button appears in the 3D View Header next to the transform orientations section.
@@ -46,12 +59,12 @@ A Blender addon to split DDS texture files into separate grayscale TGA files for
 ## Usage
 
 1. **Set the DDS Folder:**  
-   - In the 3D View Sidebar (under the Pommelstrike tab) or in the popover from the header, locate the **DDS Folder** field.
+   - In the 3D View Sidebar (under the Pommelstrike tab) or the popover from the header, locate the **DDS Folder** field.
    - Click the folder icon and navigate to the directory containing your `.dds` files.
 
 2. **Split DDS Channels:**  
    - Click the **Split Channels** button.
-   - The addon will process the DDS files according to their suffix conventions (e.g., `_NM`, `_PM`, `_BM`, `_GM`, and `_MSKcloth`).
+   - The addon will process the DDS files based on their suffix conventions (e.g., `_NM`, `_PM`, `_BM`, `_GM`, `_MSKcloth` and skin texture keys such as `HMVY`, `CLEA`, and `MSK`).
    - Processed files are saved in a subfolder named **split-output** within your selected folder.
 
 3. **View System Console:**  
@@ -65,7 +78,23 @@ During execution, messages like the following will be reported:
 - `Processed HUM_F_ARM_Rider_Gloves_X_NM (NM custom)`
 - `Processed HUM_F_ARM_Rider_Gloves_X_PM (PM custom)`
 
-These messages indicate which files were successfully processed or intentionally skipped (if no naming mapping is available).
+These messages indicate which files were successfully processed or intentionally skipped if no mapping is available.
+
+## Skin Textures – Standard Mapping Output Example
+
+The addon uses a predefined mapping for skin textures. Here are examples for two key mappings:
+
+- **For a file with key `HMVY`** (e.g., `HUM_F_BODY_part_HMVY.DDS`), the output files will be:
+  - `L0_HMVY_Red_Hemo.tga`
+  - `L1_HMVY_Grn_Mela.tga`
+  - `L2_HMVY_Blu_Vein.tga`
+  - `L3_HMVY_Alpha_Yellow.tga`
+
+- **For a file with key `CLEA`** (e.g., `HUM_F_BODY_part_CLEA.DDS`), the generated output files will be:
+  - `L4_CLEA_Red_Cavity.tga`
+  - `L5_CLEA_Grn_Brows.tga`
+  - `L6_CLEA_Blu_Lips.tga`
+  - `A0_CLEA_Alpha.tga`
 
 ## Connect
 
