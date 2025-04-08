@@ -25,7 +25,7 @@
 
 ## Installation
 
-1. [Download] (https://github.com/pommelstrike/pmlstk_DDS_tex_split/blob/main/pommelstrike_DDS_Splitter.zip) or clone this repository.  https://github.com/pommelstrike/pmlstk_DDS_tex_split/blob/main/pommelstrike_DDS_Splitter.zip
+1. [Download](https://github.com/pommelstrike/pmlstk_DDS_tex_split/blob/main/pommelstrike_DDS_Splitter.zip) or clone this repository.  https://github.com/pommelstrike/pmlstk_DDS_tex_split/blob/main/pommelstrike_DDS_Splitter.zip
 2. Open Blender and go to **Edit → Preferences → Add-ons**.  
 3. Click **Install...** and navigate to `dds_channel_splitter.py`.  
 4. Enable **Pommelstrike's DDS Channel Splitter** in the add-on list.  
