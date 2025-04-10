@@ -1,4 +1,9 @@
 # Pommelstrike's DDS Channel Splitter
+Support the development of this addon and others for future updates:
+
+- [Ko-fi: Support Pommelstrike](https://ko-fi.com/pommelstrike) 
+- [Patreon: Become a Patron](https://patreon.com/pommelstrike) it's free to join,! and the most updates are post there
+- [Linktree: Find More Links](https://linktr.ee/pommelstrike) Comms / Releases
 
 A Blender addon to split DDS texture files into separate grayscale TGA files for each channel with custom naming conventions. This addon supports splitting normal maps, metallic/roughness maps, opacity maps, glow maps, and also processes skin textures based on predefined mappings.
 
@@ -72,7 +77,7 @@ A Blender addon to split DDS texture files into separate grayscale TGA files for
 
 During execution, messages like the following will be reported:
 - `Processed HUM_F_ARM_Rider_Gloves_X_BM (BM custom)`
-- `Skipping HUM_F_ARM_Rider_Gloves_X_MSKcloth: no naming mapping defined.`
+- `Skipping HUM_F_ARM_Rider_Gloves_X_: no naming mapping defined.`
 - `Processed HUM_F_ARM_Rider_Gloves_X_NM (NM custom)`
 - `Processed HUM_F_ARM_Rider_Gloves_X_PM (PM custom)`
 
