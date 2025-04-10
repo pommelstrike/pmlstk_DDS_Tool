@@ -1,7 +1,5 @@
 # Pommelstrike's DDS Channel Splitter
 
-![DDS Channel Splitter Banner](https://via.placeholder.com/800x200?text=Pommelstrike%27s+DDS+Channel+Splitter)
-
 A Blender addon to split DDS texture files into separate grayscale TGA files for each channel with custom naming conventions. This addon supports splitting normal maps, metallic/roughness maps, opacity maps, glow maps, and also processes skin textures based on predefined mappings.
 
 ## Features
