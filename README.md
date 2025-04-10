@@ -120,6 +120,3 @@ Distributed under the terms of the MIT License. See [LICENSE](LICENSE) for more 
 Contributions, issues, and feature requests are welcome!  
 Feel free to check the [issues page](https://github.com/pommelstrike/pmlstk_DDS_tex_split/issues) if you want to contribute.
 
----
-
-*Pommelstrike's DDS Channel Splitter* is provided as-is, with support for various texture maps tailored for artists and technical directors working with DDS files in Blender.
