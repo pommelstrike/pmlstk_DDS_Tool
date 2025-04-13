@@ -34,6 +34,7 @@ A Blender addon to split DDS texture files into separate grayscale TGA files for
       - `L5_CLEA_Grn_Brows.tga`
       - `L6_CLEA_Blu_Lips.tga`
       - `A0_CLEA_Alpha.tga`
+![skin_dds_example png](https://github.com/user-attachments/assets/4e04ab36-d646-451d-b7ac-1493cee582aa)
 
       
 - **User Interface Integration:**  
