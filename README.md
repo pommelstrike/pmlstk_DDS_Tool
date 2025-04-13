@@ -13,12 +13,12 @@ A Blender addon to split DDS texture files into separate grayscale TGA files for
   Automatically splits DDS files into separate TGA files for each color channel.
   
 - **Supports Multiple File Types:**  
-  - **Normal Maps (`_NM`):** Splits into `Nrm_R.tga`, `Nrm_G.tga`, `Nrm_B.tga`, and `Nrm_A.tga`.
-  - **Metallic/Roughness Maps (`_PM`):** Splits into `PM_R_Metallic.tga`, `PM_G_Roughness.tga`, and `PM_B_Ambient_Occlusion.tga`.
-  - **Opacity Maps (`_BM`):** Creates a single `BM_A_Opacity.tga` from the alpha channel.
-  - **Glow Maps (`_GM`):** Splits into separate files for each channel with a unique naming convention.
+  - **_NM Normal Map (`_NM`):** Splits into `Nrm_R.tga`, `Nrm_G.tga`, `Nrm_B.tga`, and `Nrm_A.tga`.
+  - **_PM Metallic/Roughness/Ambient_Occlusion Map (`_PM`):** Splits into `PM_R_Metallic.tga`, `PM_G_Roughness.tga`, and `PM_B_Ambient_Occlusion.tga`.
+  - **_BM - Opacity Map (`_BM`):** Creates a single `BM_A_Opacity.tga` from the alpha channel.
+  - **_GM - Glow Map (`_GM`):** Splits into separate files for each channel with a unique naming convention.
   - **Skin Textures:**  
-    Uses predefined mappings for different skin texture types.  
+    Uses predefined mappings for skin textures based on the filename in game.  
     For example:
     - For files with the key **HMVY**, the following output files will be generated:
       - `L0_HMVY_Red_Hemo.tga`
@@ -37,7 +37,7 @@ A Blender addon to split DDS texture files into separate grayscale TGA files for
     - `MSKcloth_B.tga`
       
 - **User Interface Integration:**  
-  - A popover button appears in the 3D View Header next to the transform orientations section.
+  - A poopover button appears in the 3D View Header next to the transform orientations section.
   - A dedicated sidebar panel in the 3D View (N-panel) provides similar functionality.
   - Includes a system console toggle.
 
