@@ -7,7 +7,7 @@ Support the development of this addon and others for future updates:
 
 A Blender addon to split DDS texture files into separate grayscale TGA files for each channel with custom naming conventions. This addon supports splitting normal maps, metallic/roughness maps, opacity maps, glow maps, and also processes skin textures based on predefined mappings.
 
-(https://github.com/pommelstrike/pmlstk_DDS_tex_split/blob/main/decompose_addon_demo.gif)
+![demo](https://github.com/pommelstrike/pmlstk_DDS_tex_split/blob/main/decompose_addon_demo.gif)
 ## Features
 
 - **DDS Channel Splitting:**  
