@@ -17,24 +17,23 @@ A Blender addon to split DDS texture files into separate grayscale TGA files for
   - **_PM Metallic/Roughness/Ambient_Occlusion Map (`_PM`):** Splits into `PM_R_Metallic.tga`, `PM_G_Roughness.tga`, and `PM_B_Ambient_Occlusion.tga`.
   - **_BM - Opacity Map (`_BM`):** Creates a single `BM_A_Opacity.tga` from the alpha channel.
   - **_GM - Glow Map (`_GM`):** Splits into separate files for each channel with a unique naming convention.
-  - **Skin Textures:**  
-    Uses predefined mappings for skin textures based on the filename in game.  
-    For example:
-    - For files with the key **HMVY**, the following output files will be generated:
-      - `L0_HMVY_Red_Hemo.tga`
-      - `L1_HMVY_Grn_Mela.tga`
-      - `L2_HMVY_Blu_Vein.tga`
-      - `L3_HMVY_Alpha_Yellow.tga`
-    - For files with the key **CLEA**, the addon produces:
-      - `L4_CLEA_Red_Cavity.tga`
-      - `L5_CLEA_Grn_Brows.tga`
-      - `L6_CLEA_Blu_Lips.tga`
-      - `A0_CLEA_Alpha.tga`
-  - **Custom Support for `*_MSKcloth.DDS`:**  
+   - **Custom Support for `*_MSKcloth.DDS`:**  
     Generates three files:  
     - `MSKcloth_R.tga`
     - `MSKcloth_G.tga`
     - `MSKcloth_B.tga`
+  - **Skin Textures:**  
+    - **HMVY**, the following output files will be generated:
+      - `L0_HMVY_Red_Hemo.tga`
+      - `L1_HMVY_Grn_Mela.tga`
+      - `L2_HMVY_Blu_Vein.tga`
+      - `L3_HMVY_Alpha_Yellow.tga`
+    - **CLEA**, the addon produces:
+      - `L4_CLEA_Red_Cavity.tga`
+      - `L5_CLEA_Grn_Brows.tga`
+      - `L6_CLEA_Blu_Lips.tga`
+      - `A0_CLEA_Alpha.tga`
+
       
 - **User Interface Integration:**  
   - A poopover button appears in the 3D View Header next to the transform orientations section.
