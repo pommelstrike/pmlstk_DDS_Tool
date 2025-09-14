@@ -1,32 +1,31 @@
-# Pommelstrike's DDS Channel Splitter
+# Pommelstrike's DDS Tool
+
 Support the development of this addon and others for future updates:
 
 - [Ko-fi: Support Pommelstrike](https://ko-fi.com/pommelstrike) 
-- [Patreon: Become a Patron](https://patreon.com/pommelstrike) it's free to join,! and the most updates are post there
+- [Patreon: Become a Patron](https://patreon.com/pommelstrike) it's free to join, and the most updates are posted there
 - [Linktree: Find More Links](https://linktr.ee/pommelstrike) Comms / Releases
 
-A Blender addon to split DDS texture files into separate grayscale TGA files for each channel with custom naming conventions. This addon supports splitting normal maps, metallic/roughness maps, opacity maps, glow maps, and also processes skin textures based on predefined mappings.
+A Blender addon for decomposing DDS texture files into separate grayscale TGA files for each channel with custom naming conventions, and composing TGA or PNG files back into DDS format. This addon supports normal maps, metallic/roughness maps, opacity maps, glow maps, cloth masks, and skin textures based on predefined mappings. DDS composition uses texconv.exe for block compression tailored to specific suffixes.
 
 ![demo](https://github.com/pommelstrike/pmlstk_DDS_tex_split/blob/main/decompose_addon_demo.gif)
+
 ## Features
 
-- **DDS Channel Splitting:**  
+- **DDS Channel Decomposition:**  
   Automatically splits DDS files into separate TGA files for each color channel.
-  
-- **Supports Multiple File Types:**  
+
+- **Supports Multiple Decomposition File Types:**  
   - **_NM Normal Map (`_NM`):** Splits into `Nrm_R.tga`, `Nrm_G.tga`, `Nrm_B.tga`, and `Nrm_A.tga`.
   - **_PM Metallic/Roughness/Ambient_Occlusion Map (`_PM`):** Splits into `PM_R_Metallic.tga`, `PM_G_Roughness.tga`, and `PM_B_Ambient_Occlusion.tga`.
   - **_BM - Opacity Map (`_BM`):** Creates a single `BM_A_Opacity.tga` from the alpha channel.
   - **_GM - Glow Map (`_GM`):** Splits into separate files for each channel with a unique naming convention.
-   - **Custom Support for `*_MSKcloth.DDS`:**  
+  - **Custom Support for `*_MSKcloth.DDS`:**  
     Generates three files:  
     - `MSKcloth_R.tga`
     - `MSKcloth_G.tga`
     - `MSKcloth_B.tga`
-  - **Skin Textures:**
- 
-  - ![skin_dds_example png](https://github.com/user-attachments/assets/4e04ab36-d646-451d-b7ac-1493cee582aa)
-  - 
+  - **Skin Textures:**  
     - **HMVY**, the following output files will be generated:
       - `L0_HMVY_Red_Hemo.tga`
       - `L1_HMVY_Grn_Mela.tga`
@@ -37,13 +36,36 @@ A Blender addon to split DDS texture files into separate grayscale TGA files for
       - `L5_CLEA_Grn_Brows.tga`
       - `L6_CLEA_Blu_Lips.tga`
       - `A0_CLEA_Alpha.tga`
+    - **MSK:**
+      - `L7_MSK_Red_horns_nail.tga`
+      - `L8_MSK_Grn_Pigment.tga`
+      - `L9_MSK_Blu_TearLip.tga`
 
+- **DDS Composition from TGA/PNG:**  
+  Converts TGA or PNG files back into DDS with automatic compression based on suffixes. Outputs are saved in a `composed-dds` subfolder.  
+  - Supported suffixes and formats:  
+    - _PM: BC1_UNORM  
+    - _MSK: BC1_UNORM  
+    - _MSKCLOTH: BC1_UNORM  
+    - _BM: BC1_UNORM (allows alpha blending)  
+    - _NM: BC3_UNORM  
+    - _BMA: BC3_UNORM (allows opacity masking, no alpha blending)  
+    - _CLEA: BC3_UNORM  
+    - _HMVY: BC3_UNORM  
+  - Defaults to BC1_UNORM for unrecognized suffixes.  
+  - Requires texconv.exe (default path: `C:\SteamLibrary\steamapps\common\Baldurs Gate 3 Toolkit\texconv.exe`; customizable in the panel).  
 
-      
 - **User Interface Integration:**  
-  - A poopover button appears in the 3D View Header next to the transform orientations section.
-  - A dedicated sidebar panel in the 3D View (N-panel) provides similar functionality.
-  - Includes a system console toggle.
+  - Panels in the Properties editor under Texture and Material contexts.  
+  - Folder paths for Decompose and Compose operations.  
+  - Texconv path configuration.  
+  - Progress reporting in Blender's console (toggle via "View System Console").  
+  - Suffix preset info popup button for quick reference.
+
+- **Error Handling and Progress:**  
+  - Validates directories and texconv.exe path.  
+  - Reports successes (e.g., "Processed [file]") and errors (e.g., "Failed [file]: [error]") in the console.  
+  - Skips unsupported files with warnings.
 
 - **Blender Version:**  
   This addon is written for Blender **4.1.1** and higher.
@@ -51,7 +73,7 @@ A Blender addon to split DDS texture files into separate grayscale TGA files for
 ## Installation
 
 1. **Download the Addon:**  
-   [Download Pommelstrike's DDS Channel Splitter (ZIP)](https://github.com/pommelstrike/pmlstk_DDS_tex_split/blob/main/pommelstrike_DDS_Splitter.zip)
+   [Download Pommelstrike BG3 DDS Tool (ZIP)](https://github.com/pommelstrike/pmlstk_DDS_tex_split/releases)
 
 2. **Install via Blender Preferences:**  
    - Open Blender and go to **Edit > Preferences**.
@@ -65,17 +87,37 @@ A Blender addon to split DDS texture files into separate grayscale TGA files for
 
 ## Usage
 
+### Decompose DDS Channels
 1. **Set the DDS Folder:**  
-   - In the 3D View Sidebar (under the Pommelstrike tab) or the popover from the header, locate the **DDS Folder** field.
+   - In the Properties panel (Texture or Material context, under the Pommelstrike tab), locate the **Decompose Folder** field.
    - Click the folder icon and navigate to the directory containing your `.dds` files.
 
-2. **Split DDS Channels:**  
-   - Click the **Split Channels** button.
-   - The addon will process the DDS files based on their suffix conventions (e.g., `_NM`, `_PM`, `_BM`, `_GM`, `_MSKcloth` and skin texture keys such as `HMVY`, `CLEA`, and `MSK`).
-   - Processed files are saved in a subfolder named **split-output** within your selected folder.
+2. **Run Decomposition:**  
+   - Click the **Decompose DDS Channels to TGA** button.
+   - The addon will process DDS files based on their suffixes (e.g., `_NM`, `_PM`, `_BM`, `_GM`, `_MSKcloth`, and skin keys like `HMVY`, `CLEA`, `MSK`).
+   - Outputs are saved in a `split-output` subfolder within the selected directory.
+
+### Compose TGA/PNG to DDS
+1. **Prepare Input Files:**  
+   - Place TGA or PNG files in a folder, ensuring unique base names (e.g., `texture_PM.png`) and valid suffixes for compression.
+
+2. **Set the Compose Folder:**  
+   - In the panel, locate the **Compose Folder** field and select the directory with your input files.
+
+3. **Configure texconv.exe:**  
+   - Verify or update the **Texconv Path** field (defaults to BG3 Toolkit location). Download from [DirectXTex GitHub Releases](https://github.com/microsoft/DirectXTex/releases) if needed.
+
+4. **Run Composition:**  
+   - Click the **Compose DDS** button.
+   - The addon processes files, applying suffix-based compression via texconv.exe.
+   - Check the console for progress (e.g., "Converted [file] to [file].DDS").
+
+5. **View Results:**  
+   - Outputs (capitalized `.DDS` files) appear in a `composed-dds` subfolder.
+   - Use tools like DDS Texture Informer by Neeston for verification.
 
 3. **View System Console:**  
-   - The system console can be toggled using the **View System Console** button.
+   - Toggle the console with the **View System Console** button for detailed logs.
 
 ## Reported Console Messages
 
@@ -84,8 +126,9 @@ During execution, messages like the following will be reported:
 - `Skipping HUM_F_ARM_Rider_Gloves_X_: no naming mapping defined.`
 - `Processed HUM_F_ARM_Rider_Gloves_X_NM (NM custom)`
 - `Processed HUM_F_ARM_Rider_Gloves_X_PM (PM custom)`
+- `Converted [base] to [base].DDS` (for composition)
 
-These messages indicate which files were successfully processed or intentionally skipped if no mapping is available.
+These indicate successful processing, skips, or completions.
 
 ## Skin Textures – Standard Mapping Output Example
 
@@ -117,10 +160,9 @@ If you encounter any issues or have questions, please feel free to [open an issu
 
 ## License
 
-Distributed under the terms of the MIT License. See [LICENSE](LICENSE) for more information.
+This project is distributed under the terms of the [MIT License](LICENSE). See the LICENSE file for details.
 
 ## Contributing
 
 Contributions, issues, and feature requests are welcome!  
 Feel free to check the [issues page](https://github.com/pommelstrike/pmlstk_DDS_tex_split/issues) if you want to contribute.
-
