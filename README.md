@@ -147,6 +147,8 @@ These indicate successful processing, skips, or completions.
 ## Skin Textures – Standard Mapping Output Example
 ![demo](https://github.com/pommelstrike/pmlstk_DDS_tex_split/blob/main/decompose_addon_demo.gif)
 
+
+![image](https://i.ibb.co/M56WNXWT/skin-fc.png)
 The addon uses a predefined mapping for skin textures. Here are examples for two key mappings:
 
 - **For a file with key `HMVY`** (e.g., `HUM_F_BODY_part_HMVY.DDS`), the output files will be:
