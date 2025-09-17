@@ -78,7 +78,7 @@ A Blender addon for decomposing DDS texture files into separate grayscale TGA fi
 ## Installation
 
 1. **Download the Addon:**
-   [Download Pommelstrike BG3 DDS Tool (ZIP)](https://github.com/pommelstrike/pmlstk_DDS_tex_split/releases)
+   [Download Pommelstrike BG3 DDS Tool (ZIP)](https://github.com/pommelstrike/pmlstk_DDS_Tool/releases/tag/blender)
 
 2. **Install via Blender Preferences:**
    - Open Blender and go to **Edit > Preferences**.
