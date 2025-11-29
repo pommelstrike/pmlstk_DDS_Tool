@@ -38,6 +38,7 @@ Full detailed suffix reference → [**Wiki Page – Texture Processing Reference
 - **Decompose DDS → TGA**  
   Splits any BG3 DDS into editable grayscale TGA channels with perfect naming.  
   Now includes **_PM alpha channel** and writes full compression metadata to `report.txt`.
+  [Details on the wiki Compose Page](https://github.com/pommelstrike/pmlstk_DDS_Tool/wiki/Decompose-DDS-Reference)
 
 - **Three independent composition paths**  
   1. **Compose DDS** – fastest single-file conversion (supports BG3 suffixes + _Albedo / _Normal / _Physical)  
