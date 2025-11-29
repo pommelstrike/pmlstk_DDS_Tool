@@ -114,7 +114,7 @@ Properties Editor → Texture or Material tab → **Pommelstrike DDS COMPOSE/DEC
 Found a bug or want a new feature?  
 → [Open an issue](https://github.com/pommelstrike/pmlstk_DDS_Tool/issues)
 
-Questions? Ask in the comments on Patreon or in the BG3 Modding Discord (I’m usually around).
+Questions? Ask in the comments on Patreon or in the LARIAN BG3 Modding Discord (I’m usually around).
 
 ## License
 
@@ -124,4 +124,4 @@ MIT License – free to use, modify, and distribute.
 
 **Last Updated: November 28, 2025**
 
-Thank you for using the tool – happy modding! ✨
+Thank you for using the tool –  ✨
