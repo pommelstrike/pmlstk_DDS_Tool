@@ -2,7 +2,7 @@
 
 [![Demo Video - Full Workflow](https://img.youtube.com/vi/lV8tg81ZVs8/maxresdefault.jpg)](https://youtu.be/lV8tg81ZVs8?si=VgLyAFkKrhgFpEg8)  
 [![Blender 4.1.1+](https://img.shields.io/badge/Blender-4.1.1%2B-blue.svg)](https://www.blender.org/)  
-[![Addon Version](https://img.shields.io/badge/Version-3.6.48-brightgreen.svg)](https://github.com/pommelstrike/pmlstk_DDS_Tool/releases)  
+[![Addon Version](https://img.shields.io/badge/Version-3.6.51-brightgreen.svg)](https://github.com/pommelstrike/pmlstk_DDS_Tool/releases)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **The most powerful, up-to-date, and user-friendly DDS workflow tool for Baldur's Gate 3 modding in Blender.**
