@@ -11,9 +11,9 @@ Now with:
 - New button: "BG3 DDS Virtual Texture Fix" – huge thanks to everyone who requested and helped test this feature!
 Just drop your Toolkit-exported VT .DDS files (_Albedo/_Normal/_Physical) into the folder → instantly fixed to proper BC formats with mipmaps and correct _BM/_NM/_PM suffixes – 99 % in-game success rate
 - **UNREAL ENGINE SWIZZLER** (one-click conversion of _orm / _arm / _m / _d / _n / _gm)
-- **Compose DDS** now supports _Albedo → _BM, _Normal → _NM, _Physical → _PM
+- **Compose DDS** Convert _BM , _NM & _PM to .DDS
 - **DDC – Document Channel Compose** (auto-pack loose channels from Substance Painter, Sketchfab, FAB, etc.)
-- Full alpha decomposition for _PM
+- Full alpha decomposition for _PM (requested)
 - Automatic OpenGL/DirectX normal map detection & fix
 - Detailed report.txt with compression metadata
 - Adjustable Metallic / Roughness / AO multipliers
